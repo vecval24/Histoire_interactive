@@ -1,20 +1,14 @@
 import { createApp } from 'vue';
-// import { Quasar } from 'quasar';
-
-// import '@quasar/extras/material-icons/material-icons.css';
-// import 'quasar/dist/quasar.css';
-
+import { setDefaultHeaders, setDefaultBaseUrl } from '@/utils/fetchJson.js';
 import App from './App.vue';
 
+const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ?? '';
+console.log('CSRF Token:', csrfToken);
+
+setDefaultHeaders({'X-CSRF-TOKEN': csrfToken});
+const urlApi = document.querySelector('meta[name="api-base-url"]')?.getAttribute('content') ?? '';
+console.log('API Base URL:', urlApi);
+setDefaultBaseUrl(urlApi);
+
 const myApp = createApp(App);
-
-// myApp.use(Quasar, {
-//   config: {
-//     brand: {
-//       // Définissez ici vos couleurs de thème personnalisées
-//     }
-//   },
-//   plugins: {},
-// });
-
 myApp.mount('#app');

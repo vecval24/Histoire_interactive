@@ -1,8 +1,9 @@
 <script setup>
 import { useFetchJson } from '@/composables/useFetchJson';
 
-const { data, error, isLoading } = useFetchJson('/api/v1/test');
-const { data: data2, error: error2} = useFetchJson({url: '/api/v1/test', method: 'DELETE' });
+
+const { data, error, isLoading } = useFetchJson('test');
+const { data: data2, error: error2} = useFetchJson({url: 'test', method: 'DELETE' });
 </script>
 
 <template>

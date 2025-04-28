@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Créer le chapitre 21
-        $chapter2 = Chapter::create([
+        $chapter21 = Chapter::create([
             'id' => 21,
             'title' => "L'exploration",
             'content' => "Je repousse quelques branches et me faufile dans les buissons, suivant les petites gouttes sombres au sol. Elles ne forment pas une ligne parfaite, mais elles tracent un chemin de douleur.
@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
             ]);
 
         // Créer le chapitre 22
-        $chapter2 = Chapter::create([
+        $chapter22 = Chapter::create([
             'id' => 22,
             'title' => "L'appelle à l'aide",
             'content' => "Je recule de quelques pas, mon cœur battant un peu trop vite. J’attrape mon téléphone dans la poche de ma veste. Mes doigts tremblent légèrement. Je déverrouille l’écran. Il est 14h23. J’appuie sur l’icône de téléphone et compose le 117.
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
             ]);
 
         // Créer le chapitre 211
-        $chapter2 = Chapter::create([
+        $chapter211 = Chapter::create([
             'id' => 211,
             'title' => 'Le courage',
             'content' => "La gorge serrée, j’inspire profondément. Puis je crie, la voix plus forte que je ne l’aurais cru : Il y a quelqu’un ?!
@@ -76,7 +76,7 @@ class DatabaseSeeder extends Seeder
             ]);
 
         // Créer le chapitre 212
-        $chapter2 = Chapter::create([
+        $chapter212 = Chapter::create([
             'id' => 212,
             'title' => "La curiosité",
             'content' => "Je retiens mon souffle et me plaque contre un tronc, priant pour n’avoir pas été vue.
@@ -95,7 +95,7 @@ class DatabaseSeeder extends Seeder
             ]);
 
         // Créer le chapitre 2111
-        $chapter2 = Chapter::create([
+        $chapter2111 = Chapter::create([
             'id' => 2111,
             'title' => "Le vieil homme",
             'content' => "Je décide de rester.
@@ -116,7 +116,7 @@ class DatabaseSeeder extends Seeder
                  ]);
 
         // Créer le chapitre 2112
-        $chapter2 = Chapter::create([
+        $chapter2112 = Chapter::create([
             'id' => 2112,
             'title' => 'Le sauvetage',
             'content' => "Je range mon téléphone dans ma poche et glisse mes bras sous ses épaules.
@@ -138,7 +138,7 @@ class DatabaseSeeder extends Seeder
              ]);
 
         // Créer le chapitre 222
-        $chapter2 = Chapter::create([
+        $chapter222 = Chapter::create([
             'id' => 222,
             'title' => 'La découverte',
             'content' => "Je fais volte-face, les pieds un peu lourds, le cœur partagé entre raison et peur.
@@ -150,7 +150,7 @@ class DatabaseSeeder extends Seeder
                 ]);
 
         // Créer le chapitre 2221
-        $chapter2 = Chapter::create([
+        $chapter2221 = Chapter::create([
             'id' => 2221,
             'title' => 'Je ne suis pas seule',
             'content' => "Je m’approche de la gourde, la ramasse avec précaution. Elle est encore tiède. Quelqu’un n’est pas loin. Je scrute les alentours : un petit sentier s’enfonce entre les arbres, presque invisible.
@@ -166,7 +166,7 @@ class DatabaseSeeder extends Seeder
                 ]);
 
         // Créer le chapitre 2222
-        $chapter2 = Chapter::create([
+        $chapter2222 = Chapter::create([
             'id' => 2222,
             'title' => 'Le retour prudent',
             'content' => "Je détourne les yeux de la gourde et de la chaussure. Je ne suis pas une héroïne. Pas aujourd'hui.
@@ -180,7 +180,7 @@ class DatabaseSeeder extends Seeder
             ]);
 
         // Créer le chapitre 22221
-        $chapter2 = Chapter::create([
+        $chapter22221 = Chapter::create([
             'id' => 22221,
             'title' => "L'histoire sans fin",
             'content' => "Je serre les poings, ferme les yeux une seconde pour me donner du courage. Puis j'écrase la peur et je cours.
@@ -311,20 +311,20 @@ class DatabaseSeeder extends Seeder
 
 
         // Créer des fins
-        End::create([
+        $end11 = End::create([
             'id'=> 11,
             'title' => 'Fin : La patience sauve les deux',
             'content' => "Tu n’as pas agi seule — et tu as bien fait. L’arrivée d’un autre randonneur a facilité la prise en charge. La femme est sauvée, et tu n'es pas restée une cible isolée.",
         ]);
 
-        End::create([
+        $end12 = End::create([
             'id'=> 12,
             'title' => 'Fin : Le Courage sauve une vie',
             'content' => "u as sauvé la femme. Grâce à ton action rapide, elle a été prise en charge à temps.
              Mais l’agresseur, lui, court toujours dans la forêt...",
         ]);
 
-        End::create([
+        $end13 = End::create([
             'id'=> 13,
             'title' => 'Fin : Témoin prudent',
             'content' => 'Tu as choisi la prudence : tu as survécu, tu as alerté les secours à temps.

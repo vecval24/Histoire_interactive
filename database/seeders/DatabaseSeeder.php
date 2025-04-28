@@ -11,7 +11,8 @@ class DatabaseSeeder extends Seeder
     {
         // Créer le chapitre 1
         $chapter1 = Chapter::create([
-            'title' => 'Chapitre 1 : Le début',
+            'id' => 1,
+            'title' => 'Le début',
             'content' => "Je suis venue ici pour fuir. Les gens, le bruit, mon téléphone, mes pensées. La forêt a toujours eu cet effet calmant sur moi. Les arbres épais, le craquement des feuilles sous mes pieds, ce silence vibrant qu'on ne trouve qu'en pleine nature. Il n'y avait que moi, mon sac, ma bouteille d'eau... et l’odeur de mousse fraîche.
                 J’étais à mi-parcours du sentier jaune quand je l’ai vu.
                 Un bout de tissu.
@@ -25,7 +26,8 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 21
         $chapter2 = Chapter::create([
-            'title' => 'Chapitre 2 : Exploration',
+            'id' => 21,
+            'title' => "L'exploration",
             'content' => "Je repousse quelques branches et me faufile dans les buissons, suivant les petites gouttes sombres au sol. Elles ne forment pas une ligne parfaite, mais elles tracent un chemin de douleur.
                 Au bout de quelques mètres, je remarque des traces de glissement dans la boue. Quelqu’un a chuté, ou a été traîné. Mon cœur s’accélère. Je retiens ma respiration.
                 J’avance encore. Un bruit sec m’arrête net. Une branche cassée… pas sous mon pied.
@@ -35,7 +37,8 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 22
         $chapter2 = Chapter::create([
-            'title' => 'Chapitre 2 : Exploration',
+            'id' => 22,
+            'title' => "L'appelle à l'aide",
             'content' => "Je recule de quelques pas, mon cœur battant un peu trop vite. J’attrape mon téléphone dans la poche de ma veste. Mes doigts tremblent légèrement. Je déverrouille l’écran. Il est 14h23. J’appuie sur l’icône de téléphone et compose le 117.
                 Une seconde. Deux. Rien. Pas de tonalité.
                 Je regarde l’écran. Aucun service. Pas une barre. Même pas de faux espoir en 2G.
@@ -52,7 +55,8 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 211
         $chapter2 = Chapter::create([
-            'title' => 'Chapitre 2 : Exploration',
+            'id' => 211,
+            'title' => 'Le courage',
             'content' => "La gorge serrée, j’inspire profondément. Puis je crie, la voix plus forte que je ne l’aurais cru : Il y a quelqu’un ?!
                 Le silence me répond d’abord. Juste le vent dans les feuilles. Mon propre souffle court.
                 Puis, un bruit.
@@ -73,7 +77,8 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 212
         $chapter2 = Chapter::create([
-            'title' => 'Chapitre 2 : Exploration',
+            'id' => 212,
+            'title' => "La curiosité",
             'content' => "Je retiens mon souffle et me plaque contre un tronc, priant pour n’avoir pas été vue.
                 Le bruit s'intensifie.
                 Des pas lourds écrasent les feuilles mortes. Une silhouette émerge de l’ombre : un homme, grand, large, vêtu d’une parka sombre, la capuche rabattue.
@@ -91,7 +96,8 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 2111
         $chapter2 = Chapter::create([
-            'title' => 'Chapitre 2 : Exploration',
+            'id' => 2111,
+            'title' => "Le vieil homme",
             'content' => "Je décide de rester.
                     La porter serait risqué : je n’ai aucune idée de la distance, et si l’homme rôde encore, il me verrait.
                     Je m’assois près de la femme, gardant les yeux et les oreilles aux aguets.
@@ -111,7 +117,8 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 2112
         $chapter2 = Chapter::create([
-            'title' => 'Chapitre 2 : Exploration',
+            'id' => 2112,
+            'title' => 'Le sauvetage',
             'content' => "Je range mon téléphone dans ma poche et glisse mes bras sous ses épaules.
                     Elle est légère. Trop légère.
                     Je la hisse avec difficulté. Son corps est mou, inerte, difficile à porter seule.
@@ -132,7 +139,8 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 222
         $chapter2 = Chapter::create([
-            'title' => 'Chapitre 2 : Exploration',
+            'id' => 222,
+            'title' => 'La découverte',
             'content' => "Je fais volte-face, les pieds un peu lourds, le cœur partagé entre raison et peur.
                     Je remonte lentement le sentier par lequel je suis venue. Les arbres m’encerclent toujours, silencieux. Je jette un œil à mon téléphone toutes les deux minutes. Toujours rien.
                     Puis soudain, à une intersection que je ne reconnais pas, je vois quelque chose.
@@ -143,7 +151,8 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 2221
         $chapter2 = Chapter::create([
-            'title' => 'Chapitre 2 : Exploration',
+            'id' => 2221,
+            'title' => 'Je ne suis pas seule',
             'content' => "Je m’approche de la gourde, la ramasse avec précaution. Elle est encore tiède. Quelqu’un n’est pas loin. Je scrute les alentours : un petit sentier s’enfonce entre les arbres, presque invisible.
                     Je décide de le suivre.
                     À chaque pas, je découvre des indices épars : un foulard déchiré accroché à une ronce, une trace de main sur un tronc, une chaussette sale... Chaque signe semble me pousser un peu plus loin, un peu plus profondément dans cette forêt étrangère.
@@ -158,7 +167,8 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 2222
         $chapter2 = Chapter::create([
-            'title' => 'Chapitre 2 : Exploration',
+            'id' => 2222,
+            'title' => 'Le retour prudent',
             'content' => "Je détourne les yeux de la gourde et de la chaussure. Je ne suis pas une héroïne. Pas aujourd'hui.
                 Je reprends ma marche, cette fois d’un pas rapide, presque paniqué.
                 Le sentier semble interminable. Chaque détour ressemble au précédent. Le vent bruisse dans les arbres comme un murmure de reproches. Mon téléphone reste désespérément muet. Pas de réseau. Toujours pas.
@@ -171,8 +181,9 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 22221
         $chapter2 = Chapter::create([
-            'title' => 'Chapitre 2 : Exploration',
-            'content' => "VJe serre les poings, ferme les yeux une seconde pour me donner du courage. Puis j'écrase la peur et je cours.
+            'id' => 22221,
+            'title' => "L'histoire sans fin",
+            'content' => "Je serre les poings, ferme les yeux une seconde pour me donner du courage. Puis j'écrase la peur et je cours.
                     Pas question de jouer à la sauveteuse solitaire. Pas ici. Pas seule.
                     Chaque foulée fait grincer les branches sous mes pieds. Les arbres défilent. Les pierres roulent sous mes chaussures. Mon souffle devient court, irrégulier.
                     Mon sac cogne contre mes hanches mais je ne ralentis pas.
@@ -201,117 +212,120 @@ class DatabaseSeeder extends Seeder
 
         // Créer les choix pour le chapitre 21
         Choice::create([
-            'chapter_id' => $chapter1->id,
+            'chapter_id' => $chapter21->id,
             'text' => "Je crie : “Il y a quelqu’un ?!”",
-            'next_chapter_id' => $chapter21->id,
+            'next_chapter_id' => $chapter211->id,
         ]);
 
         Choice::create([
-            'chapter_id' => $chapter1->id,
+            'chapter_id' => $chapter21->id,
             'text' => 'Je me cache immédiatement derrière un arbre pour observer discrètement.',
-            'next_chapter_id' => $chapter22->id, 
+            'next_chapter_id' => $chapter212->id, 
         ]);
 
         // Créer les choix pour le chapitre 22
         Choice::create([
-            'chapter_id' => $chapter1->id,
+            'chapter_id' => $chapter22->id,
             'text' => 'Je décide de suivre les gouttes, prudemment. Il y a peut-être quelqu’un qui a besoin d’aide ',
             'next_chapter_id' => $chapter21->id,
         ]);
 
         Choice::create([
-            'chapter_id' => $chapter1->id,
+            'chapter_id' => $chapter22->id,
             'text' => 'Je décide de revenir sur mes pas, en espérant capter un signal plus haut dans le sentier.',
-            'next_chapter_id' => $chapter22->id, 
+            'next_chapter_id' => $chapter222->id, 
         ]);
 
         // Créer les choix pour le chapitre 211
         Choice::create([
-            'chapter_id' => $chapter1->id,
+            'chapter_id' => $chapter211->id,
             'text' => "Je tente de porter la femme jusqu'au sentier pour chercher du réseau et appeler de l'aide.",
-            'next_chapter_id' => $chapter21->id,
+            'next_chapter_id' => $chapter2111->id,
         ]);
 
         Choice::create([
-            'chapter_id' => $chapter1->id,
+            'chapter_id' => $chapter211->id,
             'text' => 'Je décide de rester sur place, de la surveiller, en espérant que quelqu’un d’autre viendra.',
-            'next_chapter_id' => $chapter22->id, 
+            'next_chapter_id' => $chapter2112->id, 
         ]);
 
         // Créer les choix pour le chapitre 212
         Choice::create([
-            'chapter_id' => $chapter1->id,
+            'chapter_id' => $chapter212->id,
             'text' => "J’attends encore quelques minutes pour être sûre que l’homme est bien parti, puis Je tente de porter la femme jusqu'au sentier pour chercher du réseau et appeler de l'aide.",
-            'next_chapter_id' => $chapter21->id,
+            'next_chapter_id' => $chapter2112->id,
         ]);
 
         Choice::create([
-            'chapter_id' => $chapter1->id,
+            'chapter_id' => $chapter212->id,
             'text' => 'Je décide de fuir immédiatement vers la clairière et retrouver le chemin du parking.',
-            'next_chapter_id' => $chapter22->id, 
+            'next_chapter_id' => $chapter22221->id, 
         ]);
 
         // Créer les choix pour le chapitre 2111 -> fin 
         Choice::create([
-            'chapter_id' => $chapter1->id,
+            'chapter_id' => $chapter2111->id,
             'text' => "La fin de l'histoire...",
-            'next_chapter_id' => $chapter21->id,
+            'next_chapter_id' => $end11->id,
         ]);
 
         // Créer les choix pour le chapitre 2112 -> fin
         Choice::create([
-            'chapter_id' => $chapter1->id,
+            'chapter_id' => $chapter2112->id,
             'text' => "La fin de l'histoire...",
-            'next_chapter_id' => $chapter21->id,
+            'next_chapter_id' => $end12->id,
         ]);
 
         // Créer les choix pour le chapitre 2221
         Choice::create([
-            'chapter_id' => $chapter1->id,
+            'chapter_id' => $chapter2221->id,
             'text' => 'Je me cache immédiatement derrière un arbre pour observer discrètement.',
-            'next_chapter_id' => $chapter21->id,
+            'next_chapter_id' => $chapter212->id,
         ]);
 
         Choice::create([
-            'chapter_id' => $chapter1->id,
+            'chapter_id' => $chapter2221->id,
             'text' => 'Je crie : “Il y a quelqu’un ?!”',
-            'next_chapter_id' => $chapter22->id, 
+            'next_chapter_id' => $chapter211->id, 
         ]);
 
         // Créer les choix pour le chapitre 2222
         Choice::create([
-            'chapter_id' => $chapter1->id,
+            'chapter_id' => $chapter2222->id,
             'text' => 'Je décide de fuir immédiatement vers la clairière et retrouver le chemin du parking.',
-            'next_chapter_id' => $chapter21->id,
+            'next_chapter_id' => $chapter22221->id,
         ]);
 
         Choice::create([
-            'chapter_id' => $chapter1->id,
+            'chapter_id' => $chapter2222->id,
             'text' => 'Je fais demi-tour et retourne voir ce qu’il se passe. Quelqu’un est peut-être encore en vie.',
-            'next_chapter_id' => $chapter22->id, 
+            'next_chapter_id' => $chapter2221->id, 
         ]);
 
         // Créer les choix pour le chapitre 22221 -> fin 
         Choice::create([
-            'chapter_id' => $chapter1->id,
+            'chapter_id' => $chapter22221->id,
             'text' => "La fin de l'histoire...",
-            'next_chapter_id' => $chapter21->id,
+            'next_chapter_id' => $end13->id,
         ]);
 
 
         // Créer des fins
         End::create([
+            'id'=> 11,
             'title' => 'Fin : La patience sauve les deux',
             'content' => "Tu n’as pas agi seule — et tu as bien fait. L’arrivée d’un autre randonneur a facilité la prise en charge. La femme est sauvée, et tu n'es pas restée une cible isolée.",
         ]);
 
         End::create([
+            'id'=> 12,
             'title' => 'Fin : Le Courage sauve une vie',
             'content' => "u as sauvé la femme. Grâce à ton action rapide, elle a été prise en charge à temps.
              Mais l’agresseur, lui, court toujours dans la forêt...",
         ]);
 
         End::create([
+            'id'=> 13,
             'title' => 'Fin : Témoin prudent',
             'content' => 'Tu as choisi la prudence : tu as survécu, tu as alerté les secours à temps.
              Mais quelque chose en toi murmure que tu as peut-être laissé passer une chance… de sauver une vie.',

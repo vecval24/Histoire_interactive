@@ -2,8 +2,8 @@
 import { useFetchJson } from '@/composables/useFetchJson';
 
 
-const { data, error, isLoading } = useFetchJson('test');
-const { data: data2, error: error2} = useFetchJson({url: 'test', method: 'DELETE' });
+const { data, error, isLoading } = useFetchJson('welcome');
+const { data: data2, error: error2} = useFetchJson({url: 'welcome', method: 'DELETE' });
 </script>
 
 <template>

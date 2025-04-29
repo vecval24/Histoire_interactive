@@ -1,31 +1,54 @@
 <template>
-  <div>
-    <h1>Le sentier du silence</h1>
-    <h3>Synopsis</h3>
-    <p>Je suis venue ici pour fuir. Fuir le bruit, fuir les regards, fuir ce monde qui m'étouffe. <br><br>La forêt m’avait toujours accueillie, silencieuse et familière. C’est ce que je cherchais : le calme, les arbres, ce craquement rassurant sous mes pas. Mais aujourd’hui, quelque chose est différent.
-                Au détour du sentier, j’ai vu un morceau de tissu accroché à une branche. Rouge. Déchiré.
-                Quand je l’ai touché, mes doigts ont rencontré la rigidité du sang séché.
-                Et sur le sol, une traînée irrégulière de gouttes sombres s’enfonçait dans les bois.
-                Je voulais appeler de l’aide, mais il n'y avait aucun réseau ici.
-                <br><br>Alors j'ai dû choisir :
-                Suivre ces traces incertaines, espérant trouver quelqu’un en vie…
-                Ou rebrousser chemin, même si chaque détour me ramenait un peu plus près de l'inconnu.
-                <br><br>Quelque chose me suit.
-                <br>Quelque chose m'observe.
-                <br><br>Dans ce sentier où le silence semble peser comme une menace, mes choix pourraient être ma seule chance de survie.
-                </p>
-      <h4>Commencer l'histoire...</h4>
+  <div class="min-h-screen bg-gray-100 flex flex-col justify-center items-center p-6">
+    <div class="max-w-2xl w-full space-y-8">
+      <h1 class="text-4xl font-bold text-center text-indigo-700">Liste des histoires</h1>
+
+      <div v-if="stories.length > 0" class="space-y-6">
+        <div
+          v-for="story in stories"
+          :key="story.id"
+          class="bg-white shadow-md rounded-lg p-6 flex flex-col items-center transition hover:shadow-xl"
+        >
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">{{ story.title }}</h2>
+          <p class="text-gray-600 text-center mb-6">{{ story.description }}</p>
+
+          <router-link
+            :to="`/chapter/${story.firstChapterId}`"
+            class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300"
+          >
+            Commencer cette histoire
+          </router-link>
+        </div>
+      </div>
+
+      <div v-else class="text-center text-gray-600">
+        Aucune histoire disponible.
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-// import { ref, onMounted } from 'vue';
-// import api from '../services/api';
+import { ref } from 'vue'
 
-// const stories = ref([]);
-
-// onMounted(async () => {
-//   const response = await api.get('/stories');
-//   stories.value = response.data;
-// });
+const stories = ref([
+  {
+    id: 1,
+    title: 'Le Sentier du Silence',
+    description: "Dans une forêt profonde, une trace sanglante t’attire. Tu devras choisir entre suivre l'inconnu ou rester en sécurité. Trois fins possibles...",
+    firstChapterId: 1
+  },
+  {
+    id: 2,
+    title: 'La Clé Enchantée',
+    description: "Une clé ancienne te conduit vers un monde magique… ou vers ta perte. Deux chemins, trois fins. Quelle porte ouvriras-tu ?",
+    firstChapterId: 10
+  },
+  {
+    id: 3,
+    title: 'Mission sur Mars',
+    description: "Une base en péril, une décision cruciale, et la survie en jeu. Ton choix déterminera le destin de la mission martienne.",
+    firstChapterId: 20
+  }
+])
 </script>

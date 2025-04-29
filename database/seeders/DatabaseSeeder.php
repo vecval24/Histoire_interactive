@@ -9,8 +9,14 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
+        $story1 = Story::create([
+            'title' => 'À l\'orée de la forêt',
+            'description' => 'Une courte aventure à la lisière d\'une forêt mystérieuse.',
+        ]);
+
         // Créer le chapitre 1
         $chapter1 = Chapter::create([
+            'story_id' => $story1->id,
             'id' => 1,
             'title' => 'Le début',
             'content' => "Je suis venue ici pour fuir. Les gens, le bruit, mon téléphone, mes pensées. La forêt a toujours eu cet effet calmant sur moi. Les arbres épais, le craquement des feuilles sous mes pieds, ce silence vibrant qu'on ne trouve qu'en pleine nature. Il n'y avait que moi, mon sac, ma bouteille d'eau... et l’odeur de mousse fraîche.
@@ -26,6 +32,7 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 21
         $chapter21 = Chapter::create([
+            'story_id' => $story1->id,
             'id' => 21,
             'title' => "L'exploration",
             'content' => "Je repousse quelques branches et me faufile dans les buissons, suivant les petites gouttes sombres au sol. Elles ne forment pas une ligne parfaite, mais elles tracent un chemin de douleur.
@@ -37,6 +44,7 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 22
         $chapter22 = Chapter::create([
+            'story_id' => $story1->id,
             'id' => 22,
             'title' => "L'appelle à l'aide",
             'content' => "Je recule de quelques pas, mon cœur battant un peu trop vite. J’attrape mon téléphone dans la poche de ma veste. Mes doigts tremblent légèrement. Je déverrouille l’écran. Il est 14h23. J’appuie sur l’icône de téléphone et compose le 117.
@@ -55,6 +63,7 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 211
         $chapter211 = Chapter::create([
+            'story_id' => $story1->id,
             'id' => 211,
             'title' => 'Le courage',
             'content' => "La gorge serrée, j’inspire profondément. Puis je crie, la voix plus forte que je ne l’aurais cru : Il y a quelqu’un ?!
@@ -77,6 +86,7 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 212
         $chapter212 = Chapter::create([
+            'story_id' => $story1->id,
             'id' => 212,
             'title' => "La curiosité",
             'content' => "Je retiens mon souffle et me plaque contre un tronc, priant pour n’avoir pas été vue.
@@ -96,6 +106,7 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 2111
         $chapter2111 = Chapter::create([
+            'story_id' => $story1->id,
             'id' => 2111,
             'title' => "Le vieil homme",
             'content' => "Je décide de rester.
@@ -117,6 +128,7 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 2112
         $chapter2112 = Chapter::create([
+            'story_id' => $story1->id,
             'id' => 2112,
             'title' => 'Le sauvetage',
             'content' => "Je range mon téléphone dans ma poche et glisse mes bras sous ses épaules.
@@ -139,6 +151,7 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 222
         $chapter222 = Chapter::create([
+            'story_id' => $story1->id,
             'id' => 222,
             'title' => 'La découverte',
             'content' => "Je fais volte-face, les pieds un peu lourds, le cœur partagé entre raison et peur.
@@ -151,6 +164,7 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 2221
         $chapter2221 = Chapter::create([
+            'story_id' => $story1->id,
             'id' => 2221,
             'title' => 'Je ne suis pas seule',
             'content' => "Je m’approche de la gourde, la ramasse avec précaution. Elle est encore tiède. Quelqu’un n’est pas loin. Je scrute les alentours : un petit sentier s’enfonce entre les arbres, presque invisible.
@@ -167,6 +181,7 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 2222
         $chapter2222 = Chapter::create([
+            'story_id' => $story1->id,
             'id' => 2222,
             'title' => 'Le retour prudent',
             'content' => "Je détourne les yeux de la gourde et de la chaussure. Je ne suis pas une héroïne. Pas aujourd'hui.
@@ -181,6 +196,7 @@ class DatabaseSeeder extends Seeder
 
         // Créer le chapitre 22221
         $chapter22221 = Chapter::create([
+            'story_id' => $story1->id,
             'id' => 22221,
             'title' => "L'histoire sans fin",
             'content' => "Je serre les poings, ferme les yeux une seconde pour me donner du courage. Puis j'écrase la peur et je cours.
@@ -312,12 +328,14 @@ class DatabaseSeeder extends Seeder
 
         // Créer des fins
         $end11 = End::create([
+            'story_id'=>$story1->id,
             'id'=> 11,
             'title' => 'Fin : La patience sauve les deux',
             'content' => "Tu n’as pas agi seule — et tu as bien fait. L’arrivée d’un autre randonneur a facilité la prise en charge. La femme est sauvée, et tu n'es pas restée une cible isolée.",
         ]);
 
         $end12 = End::create([
+            'story_id'=>$story1->id,
             'id'=> 12,
             'title' => 'Fin : Le Courage sauve une vie',
             'content' => "u as sauvé la femme. Grâce à ton action rapide, elle a été prise en charge à temps.
@@ -325,10 +343,199 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $end13 = End::create([
+            'story_id'=>$story1->id,
             'id'=> 13,
             'title' => 'Fin : Témoin prudent',
             'content' => 'Tu as choisi la prudence : tu as survécu, tu as alerté les secours à temps.
              Mais quelque chose en toi murmure que tu as peut-être laissé passer une chance… de sauver une vie.',
         ]);
-    }
+
+
+
+
+        //Histoire2
+        $story2 = Story::create([
+            'title' => 'La Clé Enchantée',
+            'description' => 'En fouillant un grenier oublié, tu mets la main sur une clé mystérieuse aux pouvoirs insoupçonnés. Mais chaque choix ouvre une porte vers un monde magique… ou vers un danger enfoui depuis des siècles. Oseras-tu découvrir la vérité derrière la clé ?',
+        ]);
+
+        // Créer le chapitre 2
+        $chapter2 = Chapter::create([
+            'story_id' => $story2->id,
+            'id' => 2,
+            'title' => 'Le début',
+            'content' => "Une pluie battante s’abattait sur les vitres lorsque tu montas au grenier de ta grand-mère. Une odeur de poussière, de bois ancien, et de souvenirs t’envahit. En fouillant dans un vieux coffre, tu découvres une petite boîte tapissée de velours. À l’intérieur : une clé dorée, ornée de symboles étranges. Elle semble… vibrer doucement. Quelque chose t’attire vers elle.",
+        ]);
+
+         // Créer le chapitre 31
+         $chapter31 = Chapter::create([
+            'story_id' => $story2->id,
+            'id' => 31,
+            'title' => 'La malle',
+            'content' => "La clé s’insère parfaitement dans la serrure de la malle. Un cliquetis résonne et, lentement, le couvercle s’ouvre. Une lumière bleutée jaillit, t’aveuglant un instant. Au fond de la malle, un portail iridescent flotte dans l’air, semblant murmurer ton prénom."]);
+
+         // Créer le chapitre 41
+         $chapter41 = Chapter::create([
+            'story_id' => $story2->id,
+            'id' => 41,
+            'title' => 'Le jardin',
+            'content' => "Le jardin, à l’abandon depuis des années, dégage une atmosphère étrange. La clé se met à chauffer dans ta poche. Près du vieux puits, elle brille plus fort. Tu t’approches, et un grondement sourd s’élève des profondeurs…"]);
+
+        //choix histoire2 chap2
+        Choice::create([
+            'chapter_id' => $chapter2->id,
+            'text' => 'Essayer la clé sur une vieille malle',
+            'next_chapter_id' =>$chapter31->id,
+        ]);
+
+        Choice::create([
+            'chapter_id' => $chapter2->id,
+            'text' => 'L’emporter avec toi et explorer le jardin',
+            'next_chapter_id' =>$chapter41->id,
+        ]);
+
+        //choix histoire2 chap31
+        Choice::create([
+            'chapter_id' => $chapter31->id,
+            'text' => 'Entrer dans le portai',
+            'next_chapter_id' =>$end31->id,
+        ]);
+
+        Choice::create([
+            'chapter_id' => $chapter31->id,
+            'text' => 'Refermer la malle',
+            'next_chapter_id' =>$end32->id,
+        ]);
+
+        //choix histoire2 chap41
+        Choice::create([
+            'chapter_id' => $chapter41->id,
+            'text' => 'Jeter la clé dans le puit',
+            'next_chapter_id' =>$end41->id,
+        ]);
+
+        Choice::create([
+            'chapter_id' => $chapter2->id,
+            'text' => ' Fuir le jardin ',
+            'next_chapter_id' =>$end42->id,
+        ]);
+
+        $end31 = End::create([
+            'story_id'=>$story2->id,
+            'id'=> 31,
+            'title' => 'Fin : L’Élu.e du Royaume Caché',
+            'content' => 'Tu franchis le portail et te retrouves dans un royaume ancien peuplé d’êtres magiques. Une voix t’accueille : "Tu es l’élu(e), porteur de la Clé du Passage." Tu choisis de rester, prêt(e) à vivre une nouvelle vie.'
+        ]);
+
+        $end32 = End::create([
+            'story_id'=>$story2->id,
+            'id'=> 32,
+            'title' => 'Le Secret Resté Clos',
+            'content' => 'Tu refermes la malle. La lumière disparaît, les murmures cessent. Tu caches la clé. Certaines portes ne devraient jamais être ouvertes.']);
+
+        $end41 = End::create([
+            'story_id'=>$story2->id,
+            'id'=> 41,
+            'title' => 'Le Gardien du Puits',
+            'content' => 'La clé tombe dans le puits et une ombre en émerge. Un ancien gardien libéré de sa prison. Il te confie une mission : protéger l’équilibre du monde magique. Tu acceptes.']);
+
+        $end42 = End::create([
+            'story_id'=>$story2->id,
+            'id'=> 42,
+            'title' => 'Fuir l’Inconnu',
+            'content' => 'Tu cours, le cœur battant. En te retournant, tu ne vois plus rien d’anormal. Peut-être que c’était ton imagination... mais tu ne retourneras jamais près du puits.']);
+
+            
+
+        //Histoire3
+        $story3 = Story::create([
+            'title' => 'Mission sur Mars',
+            'description' => 'Seul(e) sur la base martienne, tu fais face à une alerte critique. Entre tempêtes cosmiques, systèmes défaillants et décisions vitales, ton sang-froid décidera du sort de la mission… et peut-être de l’humanité.']);
+
+        // Créer le chapitre 3
+        $chapter3 = Chapter::create([
+            'story_id' => $story3->id,
+            'id' => 3,
+            'title' => 'Alerte sur la Base',
+            'content' => "L’alarme retentit, te tirant brutalement de ton sommeil. Sur l’écran principal : Communication interplanétaire : PERDUE. Tu es seul dans le module principal. L’extérieur est balayé par une tempête de poussière. Deux options s’offrent à toi..."]);
+
+         // Créer le chapitre 51
+         $chapter51 = Chapter::create([
+            'story_id' => $story3->id,
+            'id' => 51,
+            'title' => 'La Tempête',
+            'content' => "Tu enfiles ta combinaison et sors affronter les vents martiens. L’antenne est couverte de poussière rouge.
+            "]);
+
+         // Créer le chapitre 61
+         $chapter61 = Chapter::create([
+            'story_id' => $story3->id,
+            'id' => 61,
+            'title' => 'Le Générateur',
+            'content' => "Tu descends dans le noir. Le générateur principal clignote : surchauffe imminente. Si tu ne fais rien, la base entière pourrait exploser."]);
+
+        //choix histoire3 chap3
+        Choice::create([
+            'chapter_id' => $chapter3->id,
+            'text' => ' Grimper sur le toit pour vérifier l’antenne.',
+            'next_chapter_id' =>$chapter51->id,
+        ]);
+
+        Choice::create([
+            'chapter_id' => $chapter3->id,
+            'text' => 'Descendre dans la salle de maintenance pour inspecter les systèmes.',
+            'next_chapter_id' =>$chapter61->id,
+        ]);
+
+        //choix histoire2 chap51
+        Choice::create([
+            'chapter_id' => $chapter51->id,
+            'text' => 'Tenter une réparation rapide malgré le vent.',
+            'next_chapter_id' =>$end51->id,
+        ]);
+
+        Choice::create([
+            'chapter_id' => $chapter51->id,
+            'text' => 'Abandonner et revenir à l’intérieur.',
+            'next_chapter_id' =>$end52->id,
+        ]);
+
+        //choix histoire2 chap61
+        Choice::create([
+            'chapter_id' => $chapter61->id,
+            'text' => 'Forcer l’arrêt manuel. ',
+            'next_chapter_id' =>$end61->id,
+        ]);
+
+        Choice::create([
+            'chapter_id' => $chapter61->id,
+            'text' => 'Laisser l’intelligence artificielle tenter un redémarrage automatique',
+            'next_chapter_id' =>$end62->id,
+        ]);
+
+        $end51 = End::create([
+            'story_id'=>$story3->id,
+            'id'=> 51,
+            'title' => 'Héros dans la Tempête',
+            'content' => 'Tu réussis à rétablir la communication, mais une rafale t’arrache de la plateforme. Tu es projeté, inconscient... Ton sacrifice sauve la mission.' ]);
+
+        $end52 = End::create([
+            'story_id'=>$story3->id,
+            'id'=> 52,
+            'title' => 'Le Survivant Silencieux',
+            'content' => 'Tu rentres sain et sauf. Les secours te retrouvent une semaine plus tard. Tu es vivant, mais seul, marqué par la peur.']);
+
+        $end61 = End::create([
+            'story_id'=>$story3->id,
+            'id'=> 61,
+            'title' => 'Le Dernier Acte de Courage',
+            'content' => 'Tu arrêtes le générateur de justesse. L’explosion est évitée. Tu t’évanouis, mais te réveilles un héros.']);
+
+        $end62 = End::create([
+            'story_id'=>$story3->id,
+            'id'=> 62,
+            'title' => 'L’Éveil de l’Inconnu',
+            'content' => 'L’IA relance tout avec succès… puis déclenche un message d’urgence : "présence inconnue détectée dans le module B."']);
+    
+        }
 }

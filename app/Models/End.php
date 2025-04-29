@@ -9,6 +9,6 @@ class End extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'content'];
+    protected $fillable = ['story_id', 'title', 'content'];
 
 }

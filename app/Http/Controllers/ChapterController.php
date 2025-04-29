@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ChapterController extends Controller
 {
+    public function fetchAllChapters()
+    {
+        $chapters = Chapter::all();
+        return response()->json($chapters);
+    }
+
     public function show($id)
     {
         // Récupérer le chapitre avec les choix associés

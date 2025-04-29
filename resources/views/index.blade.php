@@ -6,11 +6,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="api-base-url" content="{{ url('api/v1') }}">
     <title>@yield('title')</title>
-    @yield('app')
+    @vite(['resources/js/app.js'])
+    @vite('resources/css/app.css')    
   </head>
   <body>
-    <div id="app">
-      @yield('content')
-    </div>
+    <div id="app"></div>
   </body>
 </html>

@@ -1,28 +1,23 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace App\Models;
 
-class CreateChoicesTable extends Migration
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class Choice extends Model
 {
-    public function up()
-    {
-        Schema::create('choices', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('chapter_id'); // Référence au chapitre
-            $table->string('text');  // Le texte du choix
-            $table->unsignedBigInteger('next_chapter_id'); // Référence au chapitre suivant
-            $table->timestamps();
+    use HasFactory;
 
-            // Ajouter la contrainte de clé étrangère
-            $table->foreign('chapter_id')->references('id')->on('chapters')->onDelete('cascade');
-            $table->foreign('next_chapter_id')->references('id')->on('chapters')->onDelete('cascade');
-        });
+    protected $fillable = ['chapter_id', 'choice_text', 'next_chapter_id'];
+
+    public function chapter()
+    {
+        return $this->belongsTo(Chapter::class);
     }
 
-    public function down()
+    public function nextChapter()
     {
-        Schema::dropIfExists('choices');
+        return $this->belongsTo(Chapter::class, 'next_chapter_id');
     }
 }

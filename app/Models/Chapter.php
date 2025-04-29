@@ -1,23 +1,24 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace App\Models;
 
-class CreateChaptersTable extends Migration
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class Chapter extends Model
 {
-    public function up()
+    use HasFactory;
+
+    protected $fillable = ['story_id', 'title', 'content'];
+
+    public function story()
     {
-        Schema::create('chapters', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');  // Titre du chapitre
-            $table->text('content');  // Contenu du chapitre
-            $table->timestamps();
-        });
+        return $this->belongsTo(Story::class);
     }
 
-    public function down()
+    public function choices()
     {
-        Schema::dropIfExists('chapters');
+        return $this->hasMany(Choice::class);
     }
+    
 }

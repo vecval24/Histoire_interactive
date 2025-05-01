@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Models\Chapter;
 use App\Models\Choice;
+use App\Models\Story;
 use App\Models\End;
 
 class DatabaseSeeder extends Seeder

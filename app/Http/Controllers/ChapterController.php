@@ -13,11 +13,8 @@ class ChapterController extends Controller
         return response()->json($chapters);
     }
 
-    public function show($id)
-    {
-        // Récupérer le chapitre avec les choix associés
-        $chapter = Chapter::with('choices')->findOrFail($id);
-
-        return response()->json($chapter);
+    public function show($id) {
+        return Chapter::findOrFail($id);
     }
+    
 }

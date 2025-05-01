@@ -2,20 +2,23 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChapterController;
+use App\Http\Controllers\ChoiceController;
 
-
-//définir les routes pour l'api
+// Définir les routes pour l'API
 Route::prefix('api/v1')->group(function () {
-  Route::get('/chapter/all', [ChapterController::class, 'fetchAllChapters']);
-  Route::get('/test', function () {
-    return response()->json(['message' => 'Hello, World from api!']);
-  });
-  Route::delete('/test', function () {
-    return response()->json(['message' => 'Deleting']);
-  });
+    Route::get('/chapters/{id}', [ChapterController::class, 'show']);
+    Route::get('/choices', [ChoiceController::class, 'index']);
+    
+    Route::get('/test', function () {
+        return response()->json(['message' => 'Hello, World from api!']);
+    });
+
+    Route::delete('/test', function () {
+        return response()->json(['message' => 'Deleting']);
+    });
 });
 
-// Vue routes
+// Routes Vue.js (SPA)
 Route::get('/{any?}', function () {
-  return view('index');
+    return view('index');
 })->where('any', '^(?!api|login|register).*')->name('spa');

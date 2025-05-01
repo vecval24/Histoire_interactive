@@ -20,7 +20,7 @@
             @click="goToNextChapter(choice.next_chapter_id)"
             class="w-full sm:w-2/3 md:w-1/2 bg-indigo-500 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
           >
-            {{ choice.text }}
+            {{ choice.choice_text }}
           </button>
         </div>
       </div>
@@ -71,3 +71,13 @@ onMounted(() => {
 
 watch(() => route.params.id, fetchChapterAndChoices)
 </script>
+
+<style scoped>
+/* Petite animation fade */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+</style>

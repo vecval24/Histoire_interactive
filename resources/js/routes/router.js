@@ -11,9 +11,10 @@ const routes = [
   },
   {
     path: '/chapter/:id',
-    name: 'Chapter',
-    component: PageExample,
+    name: 'ChapterPage',
+    component: PageExample
   },
+  
 ];
 
 export const router = createRouter({

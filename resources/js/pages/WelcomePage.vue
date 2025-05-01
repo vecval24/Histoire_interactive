@@ -1,27 +1,29 @@
 <template>
-  <div class="min-h-screen bg-gray-100 flex flex-col justify-center items-center p-6">
-    <div class="max-w-2xl w-full space-y-8">
-      <h1 class="text-4xl font-bold text-center text-indigo-700">Liste des histoires</h1>
+  <div class="min-h-screen bg-gradient-to-br from-purple-100 to-green-100 flex flex-col items-center p-10">
+    <div class="w-full max-w-7xl">
+      <h1 class="text-4xl font-bold text-center text-black mb-12 uppercase">Liste des histoires</h1>
 
-      <div v-if="stories.length > 0" class="space-y-6">
+      <div v-if="stories.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div
           v-for="story in stories"
           :key="story.id"
-          class="bg-white shadow-md rounded-lg p-6 flex flex-col items-center transition hover:shadow-xl"
+          class="bg-white shadow-lg rounded-2xl p-6 flex flex-col justify-between transition-transform hover:scale-105"
         >
-          <h2 class="text-2xl font-semibold text-gray-800 mb-4">{{ story.title }}</h2>
-          <p class="text-gray-600 text-center mb-6">{{ story.description }}</p>
-
+          <div>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">{{ story.title }}</h2>
+            <p class="text-gray-600 text-center mb-6">{{ story.description }}</p>
+          </div>
           <router-link
             :to="`/chapter/${story.firstChapterId}`"
-            class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300"
+            class="text-white font-semibold py-2 px-4 rounded-lg text-center mt-auto transition duration-300 hover:brightness-90"
+            style="background-color: #064e3b;"
           >
             Commencer cette histoire
           </router-link>
         </div>
       </div>
 
-      <div v-else class="text-center text-gray-600">
+      <div v-else class="text-center text-gray-700 mt-10">
         Aucune histoire disponible.
       </div>
     </div>

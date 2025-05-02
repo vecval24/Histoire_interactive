@@ -1,18 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import WelcomePage from '../pages/WelcomePage.vue';
-import PageExample from '../pages/PageExample.vue'; 
+import WelcomePage from '../pages/PageStories.vue';
+import PageExample from '../pages/PageChapters.vue'; 
+import PageStories from '../pages/PageStories.vue';
 
 
 const routes = [
   {
-    path: '/',
-    name: 'Welcome',
-    component: WelcomePage,
+    path: 'story',
+    name: 'Chapter',
+    component: PageChapters,
   },
   {
-    path: '/chapter/:id',
-    name: 'ChapterPage',
-    component: PageExample
+    path: 'stories',
+    name: 'Stories',
+    component: PageStories,
   },
   
 ];

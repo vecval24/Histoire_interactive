@@ -1,15 +1,9 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-// import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
-import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  server: {
-    proxy: {
-      '/api': 'http://127.0.0.1:8000', // Proxy toutes les requêtes /api vers le backend Laravel
-    },
-  },
   plugins: [
     laravel({
       input: ['resources/js/app.js'],
@@ -33,6 +27,6 @@ export default defineConfig({
       },
 
     }),
-     tailwindcss(),
+    tailwindcss(),
   ],
 });

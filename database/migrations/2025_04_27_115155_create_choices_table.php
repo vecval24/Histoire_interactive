@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('choices', function (Blueprint $table) {
-            $table->id(); // Clé primaire, ID du choix
-            $table->foreignId('chapter_id')->constrained()->onDelete('cascade'); // Référence au chapitre actuel
-            $table->string('text'); // Texte du choix
-            $table->foreignId('next_chapter_id')->constrained('chapters')->onDelete('cascade'); // Référence au chapitre suivant
-            $table->timestamps(); // timestamps pour created_at et updated_at
+            $table->id();
+            $table->string('text');
+            $table->foreignId('chapter_id')->constrained();
+            $table->foreignId('next_chapter_id')->nullable()->constrained('chapters');
+            $table->timestamps();
         });
     }
 

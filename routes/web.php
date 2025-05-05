@@ -11,6 +11,7 @@ Route::get('/', function () {
 
 Route::prefix('api/v1/')->group(function () {
   Route::get('stories', [StoryController::class, 'index']);
+  Route::resource('chapters', ChapterController::class);
     Route::get('/test', function () {
         return response()->json(['message' => 'Hello, World from api!']);
     });

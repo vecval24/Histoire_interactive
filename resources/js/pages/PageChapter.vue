@@ -2,14 +2,23 @@
 import { fetchJson } from "@/utils/fetchJson";
 import { onMounted, onUnmounted, ref, watch } from "vue";
 import { useFetchJson } from "../composables/useFetchJson";
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+const initialChapterId = parseInt(route.params.id);
 
 let interval;
 const time = ref(getTimer());
-const currentChapterId = ref(getChapter());
+// const currentChapterId = ref(getChapter());
+const currentChapterId = ref(initialChapterId);
 
-const { data, error, loading } = useFetchJson(
-    `stories/1/chapters/${currentChapterId.value}`
-);
+// const { data, error, loading } = useFetchJson(
+//     `stories/1/chapters/${currentChapterId.value}`
+// );
+const { data, error, loading } = useFetchJson({
+  url: `/api/v1/chapters/${currentChapterId.value}`
+});
+
 
 watch(currentChapterId, () => {
     const { request } = fetchJson(
@@ -73,13 +82,18 @@ function onRestartClick() {
     currentChapterId.value = 1;
     time.value = 0;
 }
+
+function goToNextChapter(chapterId) {
+  currentChapterId.value = chapterId;
+  localStorage.setItem("story-1-current-chapter", chapterId);
+}
 </script>
 
 <template>
   <div v-if="!loading" class="page">
     <!-- Header avec titre + timer -->
     <div class="header">
-      <h1 class="title">{{ chapter.title }}</h1>
+      <h1 class="title">{{data.title }}</h1>
       <div class="timer">{{ formatTime(time) }}</div>
     </div>
 
@@ -88,7 +102,7 @@ function onRestartClick() {
     <!-- Zone de texte + choix -->
     <div class="menu">
       <p class="text">
-        {{ chapter.content }}
+        {{ data.content }}
       </p>
 
       <ol class="choices">

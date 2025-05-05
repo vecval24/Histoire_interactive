@@ -8,6 +8,7 @@ use App\Models\Chapter;
 use App\Models\Story;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Controller;
 
 class ChapterController extends Controller
 {
@@ -40,9 +41,10 @@ class ChapterController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Story $story, Chapter $chapter)
+    public function show($id)
     {
-        return response()->json($chapter->load('choices'));
+        $chapter = Chapter::with('choices')->findOrFail($id);
+        return response()->json($chapter);
     }
 
     // /**

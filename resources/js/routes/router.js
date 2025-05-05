@@ -6,7 +6,7 @@ import PageStories from '../pages/PageStories.vue';
 
 const routes = [
   {
-    path: '/story',
+    path: '/chapter/:id',
     name: 'Chapter',
     component: PageChapter,
   },

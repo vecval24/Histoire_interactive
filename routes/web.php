@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\ChoiceController;
-use App\Http\Controllers\ChapterController;
-use App\Http\Controllers\StoryController;
+use App\Http\Controllers\API\V1\ChoiceController;
+use App\Http\Controllers\API\V1\ChapterController;
+use App\Http\Controllers\API\V1\StoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('app');
+    return view('test');
 });
 
 Route::prefix('api/v1/')->group(function () {
+  Route::get('stories', [StoryController::class, 'index']);
     Route::get('/test', function () {
         return response()->json(['message' => 'Hello, World from api!']);
     });

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\V1;
 
 use App\Http\Requests\ChapterRequest;
 use App\Http\Requests\StoryRequest;
@@ -9,7 +9,7 @@ use App\Models\Story;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class StoryChapterController extends Controller
+class ChapterController extends Controller
 {
     /**
      * Display a listing of the resource.

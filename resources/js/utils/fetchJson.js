@@ -1,116 +1,53 @@
-const defaultHeaders = {
-  'Content-Type': 'application/json',
-  'X-Requested-With': 'XmlHttpRequest',
-  'Accept': 'application/json',
-};
+let defaultBaseUrl = ""; // Valeur par défaut
 
-let defaultBaseUrl = '';
-
-/**
- * Update the default headers
- * @param {Object} headers - Headers to merge with the defaults for all requests
- */
-export function setDefaultHeaders(headers) {
-  Object.assign(defaultHeaders, headers);
-}
-
-/**
- * Set the default base URL
- * @param {string} url - Base URL to use for all requests
- */
+// Fonction pour mettre à jour l'URL de base par défaut
 export function setDefaultBaseUrl(url) {
-  if (url[url.length - 1] === '/') url = url.slice(0, -1);
   defaultBaseUrl = url;
 }
 
-/**
- * Perform an HTTP request with JSON support, timeout, and error handling
- *
- * @param {Object|string} options - Either a configuration object with request parameters, or a URL string (in which case defaults are applied to other parameters)
- * @param {string} options.url - Relative request URL (required)
- * @param {Object|null} [options.data=null] - Data to send (body or query string)
- * @param {string|null} [options.method=null] - HTTP method (GET, POST, etc.)
- * @param {Object} [options.headers={}] - Additional headers
- * @param {number} [options.timeout=5000] - Timeout in milliseconds
- * @param {string|null} [options.baseUrl=null] - Custom base URL for this request
- * @returns {Object} - { request: Promise, abort: Function }
- */
+// Dans fetchJson.js
+let defaultHeaders = {};
+
+// Fonction pour mettre à jour les en-têtes par défaut
+export function setDefaultHeaders(headers) {
+  defaultHeaders = headers;
+}
+
+// Ta fonction fetchJson
 export function fetchJson(options) {
-  if (typeof options === 'string') {
-    options = { url: options };
-  }
-
-  const {
-    url,
-    data = null,
-    method = null,
-    headers = {},
-    timeout = 5000,
-    baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000'
-  } = options;
-
-  if (typeof url !== 'string') throw new Error('The URL must be a string.');
-  const theMethod = method ? method.toUpperCase() : (data ? 'POST' : 'GET');
-
-  let fullUrl;
-  if (url.startsWith('http://') || url.startsWith('https://')) {
-    fullUrl = url;
-  } else {
-    fullUrl = (baseUrl ?? defaultBaseUrl) + (url.startsWith('/') ? url : '/' + url);
-  }
-
-  if (theMethod === 'GET' && data) {
-    const queryString = new URLSearchParams(data).toString();
-    fullUrl += '?' + queryString;
-  }
-
-  const allHeaders = { ...defaultHeaders, ...headers };
-
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), timeout);
-  const signal = controller.signal;
 
-  const body = theMethod !== 'GET' && data ? JSON.stringify(data) : null;
+  let url = typeof options === "string" ? options : options.url;
+  const method = options.method || (options.data ? "POST" : "GET");
+  const headers = options.headers || defaultHeaders;
+  const baseUrl = options.baseUrl || defaultBaseUrl; // Utilisation du baseUrl par défaut
+  const timeout = options.timeout || 5000;
 
-  const request = new Promise((resolve, reject) => {
-    fetch(fullUrl, { method: theMethod, headers: allHeaders, body, signal })
-      .then(resp => {
-        clearTimeout(timeoutId);
-        const respClone = resp.clone();
-        return resp.json()
-          .then(data => {
-            if (!resp.ok) {
-              reject({ status: resp.status, statusText: resp.statusText, data });
-            } else {
-              resolve(data);
-            }
-          })
-          .catch(() => {
-            return respClone.text()
-              .then(() => reject({
-                status: resp.status,
-                statusText: 'Error parsing response body as JSON',
-                data: null,
-              }))
-              .catch(() => reject({
-                  status: resp.status,
-                  statusText: 'Error parsing response body',
-                  data: null,
-              }));
-          });
-      })
-      .catch(err => {
-        clearTimeout(timeoutId);
-        if (err.name === 'AbortError') {
-          reject({ status: 0, statusText: 'Request aborted (timeout)', data: null });
-        } else {
-          reject({ status: 0, statusText: err.message || 'Network error', data: null });
-        }
-      });
+  const fullUrl = baseUrl + url;
+
+  const fetchPromise = fetch(fullUrl, {
+    method,
+    headers: {
+      "Content-Type": "application/json",
+      ...headers,
+    },
+    body: options.data ? JSON.stringify(options.data) : undefined,
+    signal: controller.signal,
+  }).then(async (res) => {
+    if (!res.ok) {
+      const errorBody = await res.text();
+      throw new Error(
+        `Erreur API ${res.status}: ${res.statusText} – ${errorBody}`
+      );
+    }
+    return res.json(); // Parse JSON response
   });
 
+  // Timeout
+  const timeoutId = setTimeout(() => controller.abort(), timeout);
+
   return {
-    request,
+    request: fetchPromise.finally(() => clearTimeout(timeoutId)),
     abort: () => controller.abort(),
   };
 }

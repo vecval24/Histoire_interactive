@@ -25,14 +25,17 @@ export function useFetchJson(options) {
 
   const { request, abort } = fetchJson(options);
   request
-    .then(res => {
-      data.value = res;
-      loading.value = false;
-    })
-    .catch(err => {
-      error.value = err;
-      loading.value = false;
-    });
+  .then(res => {
+    console.log("✅ Données reçues :", res); // Ajoute ça
+    data.value = res;
+    loading.value = false;
+  })
+  .catch(err => {
+    console.error("❌ Erreur API :", err); // Et ça
+    error.value = err;
+    loading.value = false;
+  });
+
 
   return { data, error, loading, abort };
 }

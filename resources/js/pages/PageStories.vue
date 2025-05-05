@@ -25,8 +25,10 @@ const { data, error, loading } = useFetchJson({
         <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">{{ story.title }}</h2>
         <p class="text-gray-600 text-center mb-6">{{ story.description }}</p>
       </div>
+
+ 
       <router-link
-        :to="`/chapter/${story.firstChapterId}`"
+        :to="`/chapter/${story.first_chapter_id}`"
         class="text-white font-semibold py-2 px-4 rounded-lg text-center mt-auto transition duration-300 hover:brightness-90"
         style="background-color: #064e3b;"
       >

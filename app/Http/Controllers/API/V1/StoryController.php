@@ -14,10 +14,23 @@ class StoryController extends Controller
      */
     public function index()
     {
-        $stories = Story::all();
+        $stories = Story::with('chapters')->get()->map(function ($story) {
+            $firstChapter = $story->chapters->sortBy('id')->first();
+    
+            return [
+                'id' => $story->id,
+                'title' => $story->title,
+                'description' => $story->description,
+                'created_at' => $story->created_at,
+                'updated_at' => $story->updated_at,
+                'first_chapter_id' => $firstChapter?->id, // null-safe in case no chapter
+            ];
+        // $stories = Story::all();
 
+        // return response()->json($stories);
+        });
         return response()->json($stories);
-        }
+    }
 
     /**
      * Store a newly created resource in storage.

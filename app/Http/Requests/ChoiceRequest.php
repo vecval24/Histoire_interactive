@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoryRequest extends FormRequest
+class ChoiceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,9 @@ class StoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'chapter_id' => 'required|exists:chapters,id',
+            'choice_text' => 'required|string|max:255',
+            'next_chapter_id' => 'nullable|exists:chapters,id',
         ];
     }
 }

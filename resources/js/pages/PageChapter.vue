@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watchEffect, onMounted, onUnmounted } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { fetchJson } from "@/utils/fetchJson";
 
 const route = useRoute();

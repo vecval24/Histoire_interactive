@@ -20,7 +20,11 @@ Route::prefix('api/v1/')->group(function () {
         return response()->json(['message' => 'Deleting']);
     });
 
-    Route::resource('stories', StoryController::class);
-    Route::resource('chapters', ChapterController::class);
-    Route::resource('choices', ChoiceController::class);
+    Route::resource('stories', App\Http\Controllers\API\V1\StoryController::class);
+    Route::resource('chapters', App\Http\Controllers\API\V1\ChapterController::class);
+    Route::resource('choices', App\Http\Controllers\API\V1\ChoiceController::class);
 });
+
+Route::get('/{any}', function () {
+    return view('index'); // ou 'index' selon ta config
+})->where('any', '.*');

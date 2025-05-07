@@ -25,6 +25,7 @@ Route::prefix('api/v1/')->group(function () {
     Route::resource('choices', App\Http\Controllers\API\V1\ChoiceController::class);
 });
 
+// Redirection vers la vue Vue.js pour toutes les autres routes
 Route::get('/{any}', function () {
-    return view('index'); // ou 'index' selon ta config
-})->where('any', '.*');
+    return view('index'); // Assure-toi que ce fichier renvoie ton fichier de démarrage Vue.js
+})->where('any', '.*'); // Cette règle va capturer toutes les routes non API et les rediriger vers Vue.js

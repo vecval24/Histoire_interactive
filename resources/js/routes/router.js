@@ -1,8 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { ref, computed } from 'vue'; 
-import PageChapter from '../pages/PageChapter.vue'; 
-import PageStories from '../pages/PageStories.vue';
 
+import PageChapter from '../pages/PageChapter.vue';
+import PageStories from '../pages/PageStories.vue';
 
 const routes = [
   {
@@ -17,18 +16,9 @@ const routes = [
   },
   {
     path: '/',
-    redirect: '/stories',
+    redirect: '/stories'  // Redirection vers /stories pour la route racine
   }
 ];
-
-export const defaultAnchor = "stories";
-export const curAnchor = ref(defaultAnchor);
-export const currentPage = computed(() => {
-    return (
-        routes.find((route) => route.anchor === curAnchor.value)?.page ||
-        PageStories
-    );
-});
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

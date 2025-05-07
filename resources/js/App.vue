@@ -1,26 +1,16 @@
 <script setup>
 import { RouterView } from 'vue-router';
-import { currentPage } from "./routes/router.js";
-
+// Supprimer cette ligne qui importe currentPage
+// import { currentPage } from "./routes/router.js";
 </script>
 
 <template>
     <div>
         <main>
-            <component :is="currentPage" />
+            <RouterView />
         </main>
     </div>
 </template>
 
 <style scoped>
-
 </style>
-
-<!-- <script setup>
-  import { RouterView } from 'vue-router';
-</script>
-
-<template>
-  <RouterView></RouterView>
-</template> -->
-

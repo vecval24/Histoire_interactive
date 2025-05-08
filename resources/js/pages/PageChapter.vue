@@ -83,50 +83,83 @@ function formatTime(time) {
 </script>
 
 <template>
-  <div v-if="loading">Chargement du chapitre...</div>
-  <div v-if="error" class="text-red-600">Erreur : {{ error.message || error }}</div>
+  <div v-if="loading" class="flex justify-center items-center h-64">
+    <div class="text-xl text-indigo-300">Chargement du chapitre...</div>
+  </div>
+  
+  <div v-if="error" class="bg-red-900 border border-red-700 text-red-200 px-4 py-3 rounded-lg relative my-6" role="alert">
+    <strong class="font-bold">Erreur :</strong>
+    <span class="block sm:inline"> {{ error.message || error }}</span>
+  </div>
 
-  <div v-if="data" class="page">
-    <!-- Header avec titre + timer -->
-    <div class="header">
-      <h1 class="title">{{ data.title }}</h1>
-      <div class="timer">{{ formatTime(time) }}</div>
+  <div v-if="data" class="page bg-gray-900 min-h-screen p-6 text-gray-300">
+    <!-- Header avec titre -->
+    <div class="header mb-8">
+      <h1 class="title text-4xl font-bold text-purple-200 text-center uppercase">{{ data.title }}</h1>
+      <!-- <div class="timer">{{ formatTime(time) }}</div> -->
     </div>
 
     <div class="spacer"></div>
 
     <!-- Zone de texte + choix -->
-    <div class="menu">
-      <p class="text">
+    <div class="menu max-w-4xl mx-auto bg-gray-800 shadow-2xl rounded-2xl p-8 border border-gray-700">
+      <p class="text text-gray-300 text-lg mb-8 leading-relaxed font-medium">
         {{ data.content }}
       </p>
 
-      <ol class="choices">
-        <li v-for="(choice, i) in data.choices" :key="choice.id">
-          <button class="choice" @click="goToNextChapter(choice.next_chapter_id)">
-            {{ i + 1 }}. {{ choice.text }}
-          </button>
-        </li>
+      <div class="border-t border-gray-700 pt-6 mt-6">
+        <h3 class="text-xl font-semibold text-purple-300 mb-6">Que voulez-vous faire ?</h3>
+        
+        <ol class="choices space-y-4">
+          <li v-for="(choice, i) in data.choices" :key="choice.id">
+            <button 
+              class="choice w-full text-left font-medium text-gray-300 py-4 px-5 rounded-lg border border-indigo-900 bg-gray-800 hover:bg-gray-700 hover:border-indigo-700 transition duration-300 flex items-center shadow-lg group"
+              @click="goToNextChapter(choice.next_chapter_id)"
+            >
+              <span class="mr-4 flex-shrink-0 bg-indigo-900 text-indigo-200 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold shadow-inner group-hover:bg-indigo-800 transition-colors">{{ i + 1 }}</span>
+              <span class="text-base group-hover:text-gray-100">{{ choice.text }}</span>
+            </button>
+          </li>
 
-        <li v-if="data.choices.length === 0">
-          <button class="choice" @click="onRestartClick">
-            Recommencer
-          </button>
-        </li>
-        <li v-if="data.choices.length === 0">
-          <router-link to="/" class="choice">Quitter</router-link>
-        </li>
-      </ol>
+          <li v-if="data.choices.length === 0" class="mt-6">
+            <button 
+              class="choice w-full text-center font-bold text-gray-200 py-3 px-4 rounded-lg transition duration-300 hover:bg-indigo-800 shadow-lg"
+              style="background-color: #4c1d95;"
+              @click="onRestartClick"
+            >
+              Recommencer
+            </button>
+          </li>
+          
+          <li v-if="data.choices.length === 0" class="mt-3">
+            <router-link 
+              to="/" 
+              class="choice w-full text-center block font-bold text-gray-400 py-3 px-4 rounded-lg border border-gray-700 hover:bg-gray-700 hover:text-gray-200 transition duration-300 shadow-lg"
+            >
+              Quitter
+            </router-link>
+          </li>
+        </ol>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-/* Petite animation fade */
+/* Animation fade */
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.8s ease;
 }
 .fade-enter-from, .fade-leave-to {
   opacity: 0;
 }
+
+/* Font mystérieuse (optionnel - décommentez si vous voulez utiliser une police spéciale) */
+/*
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&display=swap');
+
+.page {
+  font-family: 'Crimson Pro', serif;
+}
+*/
 </style>

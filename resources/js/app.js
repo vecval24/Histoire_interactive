@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import { setDefaultHeaders, setDefaultBaseUrl } from '@/utils/fetchJson.js';
 import App from './App.vue';
 import router from './routes/router.js';
-
+import '../css/app.css';
 
 const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ?? '';
 console.log('CSRF Token:', csrfToken);

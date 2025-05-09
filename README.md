@@ -14,7 +14,7 @@ Ce projet propose plusieurs histoires interactives à choix multiples où les d�
 - **SPA (Single Page Application)** : Application fluide sans rechargement de page.
 - **Vue Router** : Navigation entre les vues (accueil, lecture, authentification).
 - **Composition API & Composables** : Utilisation de `useFetchJson` et d'autres fonctions réactives.
-- **Système de navigation interactive** : L'utilisateur lit un chapitre, sélectionne un choix, et est redirigé vers le chapitre suivant.
+- **Système de navigation interactive** : L'utilisateur choisis une histoire, lit un chapitre, sélectionne un choix, et est redirigé vers le chapitre suivant. Aux différentes fins, il peut recommencer l'histoire ou en choisir une autre en revenant à la page d'accueil.
 
 ## 🌟 Fonctionnalités principales
 
@@ -66,7 +66,7 @@ Ce projet propose plusieurs histoires interactives à choix multiples où les d�
 - PHP 8.2+
 - Composer
 - Node.js et npm
-- SQLite (ou autre SGBD compatible Laravel)
+- SQLite 
 
 ### Étapes
 
@@ -113,16 +113,10 @@ Ce projet propose plusieurs histoires interactives à choix multiples où les d�
    php artisan migrate
    ```
 
-7. **Démarrer le backend**
+7. **Démarrer le backend et le frontend**
 
    ```bash
-   php artisan serve
-   ```
-
-8. **Lancer le frontend**
-
-   ```bash
-   npm run dev
+   composer run dev
    ```
 
 ---
@@ -133,7 +127,7 @@ Ce projet propose plusieurs histoires interactives à choix multiples où les d�
 
 * **Laravel 10+**
 * **PHP 8.2**
-* **SQLite** (ou MySQL, PostgreSQL)
+* **SQLite** 
 
 ### Frontend
 

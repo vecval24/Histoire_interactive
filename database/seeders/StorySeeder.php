@@ -444,7 +444,7 @@ class StorySeeder extends Seeder
         ]);
 
         Choice::create([
-            'chapter_id' => $chapter2->id,
+            'chapter_id' => $chapter41->id,
             'text' => ' Fuir le jardin ',
             'next_chapter_id' =>$chapter421->id,
         ]);

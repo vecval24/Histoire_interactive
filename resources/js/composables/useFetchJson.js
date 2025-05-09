@@ -26,12 +26,12 @@ export function useFetchJson(options) {
   const { request, abort } = fetchJson(options);
   request
   .then(res => {
-    console.log("✅ Données reçues :", res); // Ajoute ça
+    console.log("✅ Données reçues :", res); // Vérification
     data.value = res;
     loading.value = false;
   })
   .catch(err => {
-    console.error("❌ Erreur API :", err); // Et ça
+    console.error("❌ Erreur API :", err); // Vérification
     error.value = err;
     loading.value = false;
   });

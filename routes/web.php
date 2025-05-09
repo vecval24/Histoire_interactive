@@ -27,5 +27,5 @@ Route::prefix('api/v1/')->group(function () {
 
 // Redirection vers la vue Vue.js pour toutes les autres routes
 Route::get('/{any}', function () {
-    return view('index'); // Assure-toi que ce fichier renvoie ton fichier de démarrage Vue.js
-})->where('any', '.*'); // Cette règle va capturer toutes les routes non API et les rediriger vers Vue.js
+    return view('index'); 
+})->where('any', '.*'); 

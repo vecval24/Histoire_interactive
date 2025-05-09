@@ -18,7 +18,7 @@ const routes = [
   },
   {
     path: '/',
-    redirect: '/stories'  // Redirection vers /stories pour la route racine
+    redirect: '/stories'  
   },
   {
     path: '/:pathMatch(.*)*',

@@ -11,7 +11,7 @@ Ce projet propose plusieurs histoires interactives à choix multiples où les d�
 
 ## 💻 Frontend — Vue.js
 
-- **SPA (Single Page Application)** : Application fluide sans rechargement de page.
+- **SPA (Single Page Application)** : Application fluide 
 - **Vue Router** : Navigation entre les vues (accueil, lecture, authentification).
 - **Composition API & Composables** : Utilisation de `useFetchJson` et d'autres fonctions réactives.
 - **Système de navigation interactive** : L'utilisateur choisis une histoire, lit un chapitre, sélectionne un choix, et est redirigé vers le chapitre suivant. Aux différentes fins, il peut recommencer l'histoire ou en choisir une autre en revenant à la page d'accueil.

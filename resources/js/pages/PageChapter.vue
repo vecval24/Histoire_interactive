@@ -4,9 +4,9 @@ import { useRoute, useRouter } from "vue-router";
 import { fetchJson } from "@/utils/fetchJson";
 
 const route = useRoute();
-const router = useRouter();  // Utilisation de useRouter pour la navigation
+const router = useRouter();  
 console.log('ID du chapitre dans l\'URL:', route.params.id);
-// Déclare l'ID du chapitre actuel, qui est basé sur les paramètres de la route
+
 const currentChapterId = ref(parseInt(route.params.id));
 
 // Références pour les données du chapitre, l'erreur et l'état de chargement
@@ -33,9 +33,9 @@ async function loadChapter() {
   }
 }
 
-// Utiliser watchEffect pour recharger les données chaque fois que l'ID du chapitre change
+
 watchEffect(() => {
-  loadChapter();  // Appelle la fonction pour récupérer les données chaque fois que currentChapterId change
+  loadChapter(); 
 });
 
 // Gestion du timer
@@ -52,7 +52,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  clearInterval(interval);  // Nettoie l'intervalle à la destruction du composant
+  clearInterval(interval); 
 });
 
 // Fonction pour récupérer le temps stocké dans localStorage
@@ -146,7 +146,7 @@ function formatTime(time) {
 </template>
 
 <style scoped>
-/* Animation fade */
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.8s ease;
 }
@@ -154,12 +154,4 @@ function formatTime(time) {
   opacity: 0;
 }
 
-/* Font mystérieuse (optionnel - décommentez si vous voulez utiliser une police spéciale) */
-/*
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&display=swap');
-
-.page {
-  font-family: 'Crimson Pro', serif;
-}
-*/
 </style>

@@ -17,8 +17,7 @@ return new class extends Migration
             $table->foreignId('story_id')->constrained()->onDelete('cascade');
             $table->foreignId('chapter_id')->constrained()->onDelete('cascade');
             $table->timestamps();
-            
-            // Un utilisateur ne peut avoir qu'une seule progression par histoire
+           
             $table->unique(['user_id', 'story_id']);
         });
 

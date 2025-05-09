@@ -74,7 +74,7 @@ Ce projet propose plusieurs histoires interactives à choix multiples où les d�
    ```bash
    git clone https://github.com/votre-utilisateur/Histoire_interactive.git
    cd Histoire_interactive
-````
+    ```
 
 2. **Installer les dépendances PHP**
 
